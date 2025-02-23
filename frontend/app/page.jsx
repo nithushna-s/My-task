@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-
+import '../app/globals.css';
 export default function Home() {
   return (
     <div className={styles.container}>

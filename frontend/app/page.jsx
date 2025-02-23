@@ -3,12 +3,12 @@ import '../app/globals.css';
 export default function Home() {
   return (
     <div className={styles.container}>
-      <a href="http://localhost:3000/admin">
+      <a href="https://my-project-seven-sage.vercel.app/admin">
         <button className={styles.buttonadmin}>
           Admin
         </button>
       </a>
-      <a href="http://localhost:3000/products">
+      <a href="https://my-project-seven-sage.vercel.app/products">
         <button className={styles.buttonuser}>
           User
         </button>

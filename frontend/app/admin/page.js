@@ -72,7 +72,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
     <h1 className={styles.pricingTitle}>Pricing Plans</h1>
-    <a href="http://localhost:3000/admin/add-Products">
+    <a href="https://my-project-seven-sage.vercel.app/admin/add-Products">
       <button className={styles.buttonAdd}>
         Add Item
       </button>

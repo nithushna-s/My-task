@@ -1,0 +1,92 @@
+.buttonadmin {
+  background: rgb(200, 4, 4);
+  padding: 10px;
+  font-size: 15px;
+  width: 70px;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  border: none;
+}
+
+.container {
+  padding: 10px;
+  height: auto;
+  font-size: 16px;
+  margin-top: 10%;
+  margin-left: 40%;
+}
+
+.buttonadmninl:hover {
+  background: rgb(129, 5, 5);
+}
+
+.buttonadmnin:active {
+  background: rgb(242, 139, 139);
+}
+
+.buttonuser {
+  background: #035a6f;
+  padding: 10px;
+  color: white;
+  font-size: 15px;
+  width: 70px;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 5px;
+  border: none;
+}
+
+.buttonuser:hover {
+  background: #b1e7f4;
+}
+
+.buttonuser:active {
+  background: #035a6f;
+}
+
+/* Responsive styles for buttons and container */
+@media (max-width: 768px) {
+  .container {
+    margin-left: 20%;
+    width: 60%;
+  }
+
+  .buttonadmin, .buttonuser {
+    width: 80%; /* Buttons take full width on smaller screens */
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .buttonadmin {
+    margin-bottom: 10px;
+  }
+
+  .buttonuser {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 5%;
+  }
+
+  .buttonadmin, .buttonuser {
+    width: 100%; /* Buttons take full width on very small screens */
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .buttonadmin {
+    margin-bottom: 10px;
+  }
+
+  .buttonuser {
+    margin-top: 10px;
+  }
+}

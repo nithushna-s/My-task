@@ -1,0 +1,123 @@
+body {
+  background-color: white;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: auto;
+  font-size: 16px;
+  width: 30%;
+  margin: 3%;
+  margin-left: 35%;
+  border: #035a6f 1px solid;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px #035a6f;
+}
+
+.pricingTitle {
+  font-size: 2.5rem;
+  color: #035a6f;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input {
+  width: 250px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttonAdd {
+  background: #035a6f;
+  padding: 10px;
+  width: 100px;
+}
+
+.buttonAdd:hover {
+  background: #07b5e1;
+}
+
+.buttonAdd:active {
+  transform: scale(0.98);
+}
+
+.successMessage {
+  color: green;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .pricingTitle {
+    font-size: 2rem;
+  }
+
+  .input {
+    width: 200px;
+  }
+
+  .buttonAdd {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .pricingTitle {
+    font-size: 1.8rem;
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  .buttonAdd {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .pricingTitle {
+    font-size: 1.5rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .buttonAdd {
+    width: 100%;
+  }
+}

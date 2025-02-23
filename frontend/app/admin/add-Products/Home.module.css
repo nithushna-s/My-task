@@ -1,8 +1,3 @@
-body {
-  background-color: white;
-  font-family: 'Lora', serif;
-  text-align: center;
-}
 
 .container {
   display: flex;
@@ -51,6 +46,9 @@ body {
   background: #035a6f;
   padding: 10px;
   width: 100px;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .buttonAdd:hover {

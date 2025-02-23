@@ -1,31 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import styles from "./Home.module.css";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [editId, setEditId] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    fetchItems();
-  }, []);
-
-  const fetchItems = async () => {
-    try {
-      const response = await axios.get("http://localhost:3001/items");
-      setItems(response.data);
-    } catch (error) {
-      console.error("Error fetching items:", error);
-    }
-  };
 
   const handleSuccess = (message) => {
     setShowSuccess(message);
@@ -42,35 +27,11 @@ export default function Home() {
         price: parseFloat(price),
         quantity: parseInt(quantity),
       });
-      fetchItems();
       setName("");
       setPrice("");
       setQuantity("");
       handleSuccess("Item added successfully!");
     }
-  };
-
-  const updateItem = async () => {
-    if (name && price && quantity && editId !== null) {
-      await axios.put(`http://localhost:3001/items/${editId}`, {
-        name,
-        price: parseFloat(price),
-        quantity: parseInt(quantity),
-      });
-      fetchItems();
-      setName("");
-      setPrice("");
-      setQuantity("");
-      setEditId(null);
-      handleSuccess("Item updated successfully!");
-    }
-  };
-
-  const handleEdit = (item) => {
-    setName(item.name);
-    setPrice(item.price.toString());
-    setQuantity(item.quantity.toString());
-    setEditId(item.id);
   };
 
   return (
@@ -100,10 +61,10 @@ export default function Home() {
       />
 
       <button
-        className={`${styles.button} ${editId ? styles.buttonEdit : styles.buttonAdd}`}
-        onClick={editId ? updateItem : addItem}
+        className={styles.buttonAdd}
+        onClick={addItem}
       >
-        {editId ? "Update Item" : "Add Item"}
+        Add Item
       </button>
     </div>
   );

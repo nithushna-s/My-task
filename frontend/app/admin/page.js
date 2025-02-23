@@ -11,8 +11,8 @@ export default function Home() {
   const [quantity, setQuantity] = useState("");
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const [showModal, setShowModal] = useState(false); // Modal visibility
-  const [itemToDelete, setItemToDelete] = useState(null); // Item to delete
+  const [showModal, setShowModal] = useState(false); 
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   useEffect(() => {
     fetchItems();
@@ -27,9 +27,9 @@ export default function Home() {
     }
   };
 
-  const addItem = async () => {
-    if (name && price && quantity) {
-      await axios.post("http://localhost:3001/items", {
+  const updateItem = async () => {
+    if (name && price && quantity && editId !== null) {
+      await axios.put(`http://localhost:3001/items/${editId}`, {
         name,
         price: parseFloat(price),
         quantity: parseInt(quantity),
@@ -53,7 +53,6 @@ export default function Home() {
     setItemToDelete(null);
   };
 
-
   const resetForm = () => {
     setName("");
     setPrice("");
@@ -72,21 +71,16 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.pricingTitle}>Pricing Plans</h1>
-
-      {!showForm && (
-        <a href="http://localhost:3000/admin/add-Products">
-          <button
-            className={`${styles.button} ${styles.buttonAdd}`}
-          >
-            Add Item
-          </button>
-        </a>
-      )}
-
+    <h1 className={styles.pricingTitle}>Pricing Plans</h1>
+    <a href="http://localhost:3000/admin/add-Products">
+      <button className={styles.buttonAdd}>
+        Add Item
+      </button>
+    </a>
+ 
+  
       {showForm && (
         <div className={styles.formContainer}>
-      
           <h3 className={styles.h3}>Update Item</h3>
           <button className={styles.buttonCancel} onClick={resetForm}>
             x
@@ -112,12 +106,11 @@ export default function Home() {
             type="number"
           />
           <button
-            className={`${styles.button} ${editId ? styles.buttonEdit : styles.buttonAdd}`}
-            onClick={addItem}
+            className={`${styles.button} ${styles.buttonEdit}`}
+            onClick={updateItem}
           >
-          submit
+            Submit
           </button>
-        
         </div>
       )}
 
@@ -144,13 +137,14 @@ export default function Home() {
                   Edit
                 </button>
                 <button className={styles.liItemButton} onClick={() => deleteItem(item.id)}>
-              Delete
-            </button>
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
       {showModal && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>

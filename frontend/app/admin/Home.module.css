@@ -1,9 +1,3 @@
-body {
-  background-color: white;
-  font-family: 'Lora', serif;
-  text-align: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -38,6 +32,8 @@ body {
   padding: 10px;
   width: 100px;
   margin-left: 550px;
+  border-radius: 5px;
+  color: white;
 }
 
 .buttonAdd:hover {

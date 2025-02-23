@@ -4,15 +4,14 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS
   app.enableCors({
-    origin: 'http://localhost:3000',  // Allow requests from your frontend
-    methods: 'GET, POST, PUT, DELETE',  // Allow necessary HTTP methods
-    allowedHeaders: 'Content-Type, Authorization',  // Allow necessary headers
+    origin: ['http://localhost:3000', 'https://my-project-seven-sage.vercel.app'], 
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
   });
 
-  await app.listen(3001); // Or whatever port your backend is running on
+  await app.listen(3003); 
 
-  console.log('Backend is running on http://localhost:3001');
+  console.log('Backend is running on http://localhost:3003'); 
 }
 bootstrap();

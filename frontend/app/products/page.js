@@ -6,8 +6,8 @@ import styles from "./UserPage.module.css";
 
 export default function UserPage() {
   const [items, setItems] = useState([]);
-  const [visibleItems, setVisibleItems] = useState(8); // Initial number of visible items
-  const [showMore, setShowMore] = useState(true); // Toggle between "Show More" and "Show Less"
+  const [visibleItems, setVisibleItems] = useState(8); 
+  const [showMore, setShowMore] = useState(true);
 
   useEffect(() => {
     fetchItems();
@@ -15,7 +15,7 @@ export default function UserPage() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/items");
+      const response = await axios.get("http://localhost:3003/items");
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);

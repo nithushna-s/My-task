@@ -22,7 +22,7 @@ export default function Home() {
 
   const addItem = async () => {
     if (name && price && quantity) {
-      await axios.post("http://localhost:3001/items", {
+      await axios.post("http://localhost:3003/items", {
         name,
         price: parseFloat(price),
         quantity: parseInt(quantity),

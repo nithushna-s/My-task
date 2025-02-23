@@ -5,12 +5,10 @@ import { PrismaService } from '../prisma.service';
 export class ItemsService {
   constructor(private prisma: PrismaService) {}
 
-  // Fetch all items
   async findAll() {
     return this.prisma.item.findMany();
   }
 
-  // Create a new item with quantity
   async create(data: { name: string; price: number; quantity: number }) {
     return this.prisma.item.create({
       data,

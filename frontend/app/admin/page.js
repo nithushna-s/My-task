@@ -20,7 +20,7 @@ export default function Home() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/items");
+      const response = await axios.get("http://localhost:3003/items");
       setItems(response.data);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -29,7 +29,7 @@ export default function Home() {
 
   const updateItem = async () => {
     if (name && price && quantity && editId !== null) {
-      await axios.put(`http://localhost:3001/items/${editId}`, {
+      await axios.put(`http://localhost:3003/items/${editId}`, {
         name,
         price: parseFloat(price),
         quantity: parseInt(quantity),
@@ -46,7 +46,7 @@ export default function Home() {
 
   const handleDeleteConfirmation = async (confirmed) => {
     if (confirmed && itemToDelete) {
-      await axios.delete(`http://localhost:3001/items/${itemToDelete}`);
+      await axios.delete(`http://localhost:3003/items/${itemToDelete}`);
       fetchItems();
     }
     setShowModal(false);
@@ -72,7 +72,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
     <h1 className={styles.pricingTitle}>Pricing Plans</h1>
-    <a href="https://my-project-seven-sage.vercel.app/admin/add-Products">
+    <a href="http://localhost:3000/admin/add-Products">
       <button className={styles.buttonAdd}>
         Add Item
       </button>
